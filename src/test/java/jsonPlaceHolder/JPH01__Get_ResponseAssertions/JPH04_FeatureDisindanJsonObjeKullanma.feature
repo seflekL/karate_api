@@ -12,6 +12,8 @@ Feature: JPH04 Kullanici Json objesi olan test datalarini feature disinda olustu
     When request  requestBody
     And method Put
     Then status 200
+    And match header Content-Type == 'application/json; charset=utf-8'
+    And match header Connection == 'keep-alive'
     And assert response.id == expectedResponseBody.id
     And assert response.title == expectedResponseBody.title
     And assert response.body == expectedResponseBody.body

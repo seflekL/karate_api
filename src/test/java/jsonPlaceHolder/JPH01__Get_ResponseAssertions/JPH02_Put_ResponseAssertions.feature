@@ -34,8 +34,8 @@ Feature: JPH02 PUT request sonucu donen response bilgilerini test eder
     When method PUT
     Then status 200
     And print response
-    And match  header Content-Type == 'application/json; charset=utf-8'
-    And match  header Connection == 'keep-alive'
+    And match header Content-Type == 'application/json; charset=utf-8'
+    And match header Connection == 'keep-alive'
     And assert response.title == 'Ahmet'
     And assert response.body == 'Merhaba'
     And assert response.userId == '10'
