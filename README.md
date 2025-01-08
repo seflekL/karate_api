@@ -1,7 +1,5 @@
 # Karate API Test Framework
-
-![Karate Logo](https://raw.githubusercontent.com/intuit/karate/master/karate-core/src/main/resources/karate-logo.png)
-
+ 
 Karate API Test Framework projesine hoş geldiniz! Bu proje, Karate DSL kullanılarak API testleri için sağlam ve kullanıcı dostu bir çerçeve sunmak için tasarlanmıştır. İster deneyimli bir test uzmanı olun ister yeni başlıyor olun, bu depo API'leri etkili ve verimli bir şekilde test etmek için ihtiyacınız olan her şeyi sağlar.
 
 ## 📋 İçindekiler
