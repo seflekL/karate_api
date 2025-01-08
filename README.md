@@ -1,92 +1,75 @@
-Karate API Test Framework
+# Karate API Test Framework
 
-Welcome to the Karate API Testing Project! This project is designed to provide a robust and user-friendly framework for API testing using the Karate DSL. Whether you're an experienced tester or just getting started, this repository offers everything you need to test APIs effectively and efficiently.
+![Karate Logo](https://raw.githubusercontent.com/intuit/karate/master/karate-core/src/main/resources/karate-logo.png)
 
-Table of Contents
+Karate API Test Framework projesine hoş geldiniz! Bu proje, Karate DSL kullanılarak API testleri için sağlam ve kullanıcı dostu bir çerçeve sunmak için tasarlanmıştır. İster deneyimli bir test uzmanı olun ister yeni başlıyor olun, bu depo API'leri etkili ve verimli bir şekilde test etmek için ihtiyacınız olan her şeyi sağlar.
 
-Overview
+## 📋 İçindekiler
+- [Genel Bakış](#genel-bakış)
+- [Özellikler](#özellikler)
+- [Kurulum](#kurulum)
+- [Kullanım](#kullanım)
+- [Klasör Yapısı](#klasör-yapısı)
+- [Test Yazma](#test-yazma)
+- [Testleri Çalıştırma](#testleri-çalıştırma)
+- [Raporlama](#raporlama)
+- [Katkıda Bulunma](#katkıda-bulunma)
 
-Features
+## 🔍 Genel Bakış
+Karate, API testlerini yazmayı, yürütmeyi ve yönetmeyi basitleştiren güçlü bir API test çerçevesidir. Bu proje, Karate'nin yeteneklerini şu amaçlarla kullanır:
+- RESTful API'leri doğrulama
+- API iş akışlarını otomatikleştirme
+- CI/CD boru hatlarına entegrasyon
 
-Setup
+## ⭐ Özellikler
+- **Kullanımı Kolay:** Okunabilir, Gherkin benzeri bir söz dizimiyle test yazın.
+- **Güçlü Doğrulamalar:** Yerleşik JSON ve XML karşılaştırma desteği.
+- **Tekrar Kullanılabilirlik:** Testleri yeniden kullanılabilir ve sürdürülebilir hale getirin.
+- **Sorunsuz Entegrasyon:** Jenkins, GitHub Actions ve diğer CI/CD araçlarıyla uyumlu.
+- **Kapsamlı Raporlama:** Detaylı HTML raporları oluşturun.
 
-Usage
+## 🛠️ Kurulum
 
-Folder Structure
+### Gereksinimler
+- **Java Development Kit (JDK):** Sürüm 11 veya daha yeni.
+- **Maven:** Maven yüklü ve PATH'e ekli olduğundan emin olun.
 
-Writing Tests
-
-Running Tests
-
-Reporting
-
-Contributing
-
-Overview
-
-Karate is a powerful API testing framework that simplifies the process of writing, executing, and managing API tests. This project leverages Karate's capabilities to:
-
-Validate RESTful APIs
-
-Automate API workflows
-
-Integrate with CI/CD pipelines
-
-Features
-
-Easy to Use: Write tests in a readable, Gherkin-like syntax.
-
-Powerful Assertions: Built-in JSON and XML comparison support.
-
-Reusability: Modularize tests for reusability and maintainability.
-
-Seamless Integration: Compatible with Jenkins, GitHub Actions, and other CI/CD tools.
-
-Comprehensive Reporting: Generate detailed HTML reports.
-
-Setup
-
-Prerequisites
-
-Java Development Kit (JDK): Version 11 or later.
-
-Maven: Ensure Maven is installed and added to your PATH.
-
-Clone the Repository
-
+### Depoyu Klonlayın
+```bash
 git clone https://github.com/seflekL/karate_api.git
 cd karate_api
+```
 
-Install Dependencies
-
-Run the following Maven command to install all required dependencies:
-
+### Bağımlılıkları Yükleyin
+Tüm gerekli bağımlılıkları yüklemek için aşağıdaki Maven komutunu çalıştırın:
+```bash
 mvn clean install
+```
 
-Usage
+## 🚀 Kullanım
 
-Running Tests
-
-Execute all tests using Maven:
-
+### Testleri Çalıştırma
+Tüm testleri Maven kullanarak çalıştırın:
+```bash
 mvn test
+```
 
-Specific Test Suite
-
-To run a specific test, use:
-
+### Belirli Bir Testi Çalıştırma
+Belirli bir testi çalıştırmak için şu komutu kullanın:
+```bash
 mvn test -Dkarate.options="classpath:features/<feature_name>.feature"
+```
 
-Generating Reports
-
-Generate detailed test reports:
-
+### Raporlama
+Detaylı test raporları oluşturun:
+```bash
 mvn clean test-compile
+```
 
-Reports will be located in the target/surefire-reports directory.
+Raporlar `target/surefire-reports` dizininde bulunacaktır.
 
-Folder Structure
-
+## 📁 Klasör Yapısı
+```
 karate_api/
 ├── src/
 │   ├── test/
@@ -96,33 +79,34 @@ karate_api/
 │   │   │       └── example.feature
 │   │   └── karate-config.js
 ├── pom.xml
+```
+- **features/**: API testleri için tüm feature dosyalarını içerir.
+- **karate-config.js**: Karate testleri için genel yapılandırma dosyası.
+- **pom.xml**: Maven yapılandırma dosyası.
 
-features/: Contains all feature files for API testing.
+## ✍️ Test Yazma
 
-karate-config.js: Global configuration for Karate tests.
+Testler, Gherkin söz dizimi kullanılarak `.feature` dosyalarında yazılır. İşte bir örnek:
+```gherkin
+Feature: Örnek bir API uç noktasını test edin
 
-pom.xml: Maven configuration file.
-
-Writing Tests
-
-Tests are written in .feature files using Gherkin syntax. Here's an example:
-
-Feature: Test an example API endpoint
-
-  Scenario: Validate the response status and content
+  Scenario: Yanıt durumunu ve içeriği doğrulayın
     Given url 'https://example.com/api'
     When method GET
     Then status 200
     And match response == { "message": "success" }
+```
 
-Contributing
+## 🤝 Katkıda Bulunma
 
-We welcome contributions! Please follow these steps:
+Katkılarınızı memnuniyetle karşılıyoruz! Lütfen şu adımları izleyin:
+1. Depoyu fork edin.
+2. Özellik veya hata düzeltmeniz için yeni bir dal oluşturun.
+3. Bir pull request gönderin.
 
-Fork the repository.
+Herhangi bir sorunuz veya geri bildiriminiz için, bu depoda bir issue açabilirsiniz.
 
-Create a new branch for your feature or bug fix.
+---
 
-Submit a pull request.
+🎉 **Karate ile Keyifli Testler!** 🎉
 
-For any questions or feedback, feel free to open an issue in this repository.
